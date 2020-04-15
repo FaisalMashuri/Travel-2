@@ -5,13 +5,15 @@
  */
 package com.koneksi;
 
-import java.sql.Connection;
+import java.sql.*;
 import java.sql.DriverManager;
 /**
  *
  * @author FAISAL
  */
 public class koneksi {
+    Connection con;
+    Statement stm;
     private static Connection koneksi;
     public static Connection getKoneksi(){
         if(koneksi == null){
@@ -28,4 +30,17 @@ public class koneksi {
         }
         return koneksi;
     }
+    
+//    public void config(){
+//           try {
+//               Class.forName("com.mysql.jdbc.Driver");
+//               con=DriverManager.getConnection("jdbc:mysql://localhost/travel_desktop", "root", "");
+//               stm = con.createStatement();
+//           } catch (Exception ex) {
+//               System.out.println(ex);
+//           }
+//       }   
 }
+    
+
+    
