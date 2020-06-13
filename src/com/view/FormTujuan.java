@@ -55,7 +55,7 @@ public class FormTujuan extends javax.swing.JFrame {
         isisupir = new javax.swing.JLabel();
         riwayat = new javax.swing.JPanel();
         isiriwayat = new javax.swing.JLabel();
-        isiriwayat1 = new javax.swing.JLabel();
+        Mobil = new javax.swing.JLabel();
         isilogout = new javax.swing.JLabel();
         Header = new javax.swing.JPanel();
         id = new javax.swing.JLabel();
@@ -93,7 +93,7 @@ public class FormTujuan extends javax.swing.JFrame {
         Nama.setBackground(new java.awt.Color(255, 255, 255));
         Nama.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Nama.setForeground(new java.awt.Color(204, 204, 204));
-        Nama.setText("Pegawai");
+        Nama.setText("Admin");
 
         travel.setBackground(new java.awt.Color(102, 0, 0));
 
@@ -118,9 +118,14 @@ public class FormTujuan extends javax.swing.JFrame {
         isiriwayat.setForeground(new java.awt.Color(204, 204, 204));
         isiriwayat.setText("TUJUAN");
 
-        isiriwayat1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        isiriwayat1.setForeground(new java.awt.Color(204, 204, 204));
-        isiriwayat1.setText("MOBIL");
+        Mobil.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        Mobil.setForeground(new java.awt.Color(204, 204, 204));
+        Mobil.setText("MOBIL");
+        Mobil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MobilMouseClicked(evt);
+            }
+        });
 
         isilogout.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         isilogout.setForeground(new java.awt.Color(204, 204, 204));
@@ -139,7 +144,7 @@ public class FormTujuan extends javax.swing.JFrame {
                 .addGap(70, 70, 70)
                 .addGroup(riwayatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(isilogout)
-                    .addComponent(isiriwayat1)
+                    .addComponent(Mobil)
                     .addComponent(isiriwayat))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -149,7 +154,7 @@ public class FormTujuan extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(isiriwayat, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(isiriwayat1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Mobil, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(isilogout, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -199,24 +204,24 @@ public class FormTujuan extends javax.swing.JFrame {
         sidepan.setLayout(sidepanLayout);
         sidepanLayout.setHorizontalGroup(
             sidepanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sidepanLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Nama)
-                .addGap(76, 76, 76))
-            .addGroup(sidepanLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(Foto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
             .addComponent(travel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(sidepanLayout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(Nama)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sidepanLayout.createSequentialGroup()
+                .addContainerGap(52, Short.MAX_VALUE)
+                .addComponent(Foto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
         );
         sidepanLayout.setVerticalGroup(
             sidepanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sidepanLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(Foto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Nama)
-                .addGap(45, 45, 45)
+                .addGap(40, 40, 40)
                 .addComponent(travel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -299,6 +304,11 @@ public class FormTujuan extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tabelData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelDataMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelData);
         if (tabelData.getColumnModel().getColumnCount() > 0) {
             tabelData.getColumnModel().getColumn(0).setResizable(false);
@@ -322,7 +332,7 @@ public class FormTujuan extends javax.swing.JFrame {
 
         buttonUpdate.setBackground(new java.awt.Color(102, 0, 0));
         buttonUpdate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        buttonUpdate.setText("Edit");
+        buttonUpdate.setText("Update");
         buttonUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonUpdateActionPerformed(evt);
@@ -350,89 +360,92 @@ public class FormTujuan extends javax.swing.JFrame {
                 .addComponent(sidepan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BgLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(BgLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(BgLayout.createSequentialGroup()
+                                .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(BgLayout.createSequentialGroup()
+                                        .addGap(72, 72, 72)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(BgLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(BgLayout.createSequentialGroup()
+                                                .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(125, 125, 125)
+                                                .addComponent(tujuan))
+                                            .addGroup(BgLayout.createSequentialGroup()
+                                                .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(TxtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(47, 47, 47)
+                                                .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txtJam)
+                                                    .addComponent(txtTujuan, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(setJam, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(harga)))
+                                    .addGroup(BgLayout.createSequentialGroup()
+                                        .addGap(81, 81, 81)
+                                        .addComponent(buttonInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(29, 29, 29)
+                                        .addComponent(buttonUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(32, 32, 32)
+                                        .addComponent(buttonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 87, Short.MAX_VALUE)))
+                        .addContainerGap())
                     .addGroup(BgLayout.createSequentialGroup()
-                        .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, BgLayout.createSequentialGroup()
-                                .addGap(122, 122, 122)
-                                .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(BgLayout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(buttonCari))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, BgLayout.createSequentialGroup()
-                                .addGap(64, 64, 64)
-                                .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1)
-                                    .addGroup(BgLayout.createSequentialGroup()
-                                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtTujuan, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(8, 8, 8))
-                                    .addGroup(BgLayout.createSequentialGroup()
-                                        .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(harga)
-                                            .addGroup(BgLayout.createSequentialGroup()
-                                                .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addGroup(BgLayout.createSequentialGroup()
-                                                        .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(284, 284, 284))
-                                                    .addGroup(BgLayout.createSequentialGroup()
-                                                        .addComponent(TxtHarga)
-                                                        .addGap(206, 206, 206)))
-                                                .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(tujuan)
-                                                    .addComponent(txtJam)
-                                                    .addComponent(setJam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGroup(BgLayout.createSequentialGroup()
-                                                .addGap(25, 25, 25)
-                                                .addComponent(buttonInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(29, 29, 29)
-                                                .addComponent(buttonUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(30, 30, 30)
-                                                .addComponent(buttonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addGap(56, 56, 56))
-                    .addGroup(BgLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(BgLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         BgLayout.setVerticalGroup(
             BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sidepan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(sidepan, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(BgLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tujuan))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(9, 9, 9)
                 .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTujuan, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
+                .addGap(18, 18, 18)
                 .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(harga)
                     .addComponent(txtJam))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(setJam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(83, 83, 83)
-                .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonCari))
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonInsert)
-                    .addComponent(buttonUpdate)
-                    .addComponent(buttonDelete))
-                .addGap(21, 75, Short.MAX_VALUE))
+                .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BgLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TxtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(setJam, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(82, 82, 82)
+                        .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonCari))
+                        .addGap(27, 27, 27)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(BgLayout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(BgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonInsert)
+                            .addComponent(buttonUpdate)
+                            .addComponent(buttonDelete))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -496,9 +509,35 @@ public class FormTujuan extends javax.swing.JFrame {
 
     private void isilogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_isilogoutMouseClicked
         // TODO add your handling code here:
-        
-
+        JOptionPane.showMessageDialog(null, "Anda Telah Logout");
+        new LoginAdmin().setVisible(true);
+        dispose();
     }//GEN-LAST:event_isilogoutMouseClicked
+
+    private void tabelDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelDataMouseClicked
+        // TODO add your handling code here:
+        int baris = tabelData.rowAtPoint(evt.getPoint());
+        String ID = tabelData.getValueAt(baris, 0).toString();
+        txtID.setText(ID);
+        
+        String tujuan = tabelData.getValueAt(baris,1).toString();
+        txtTujuan.setText(tujuan);
+        
+        String harga = tabelData.getValueAt(baris, 2).toString();
+        TxtHarga.setText(harga);
+        
+//        String jam = tabelData.getvalueAt(baris,3)
+//        setJam.setModel(new DefaultComboBoxModel())
+        setJam.setSelectedItem(tabelData.getValueAt(baris,3));
+        
+        
+    }//GEN-LAST:event_tabelDataMouseClicked
+
+    private void MobilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MobilMouseClicked
+        // TODO add your handling code here:
+        new MobilTampil().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_MobilMouseClicked
 
     /**
      * @param args the command line arguments
@@ -539,6 +578,7 @@ public class FormTujuan extends javax.swing.JFrame {
     private javax.swing.JPanel Bg;
     private javax.swing.JPanel Foto;
     private javax.swing.JPanel Header;
+    private javax.swing.JLabel Mobil;
     private javax.swing.JLabel Nama;
     private javax.swing.JTextField TxtHarga;
     private javax.swing.JButton buttonCari;
@@ -549,7 +589,6 @@ public class FormTujuan extends javax.swing.JFrame {
     private javax.swing.JLabel id;
     private javax.swing.JLabel isilogout;
     private javax.swing.JLabel isiriwayat;
-    private javax.swing.JLabel isiriwayat1;
     private javax.swing.JLabel isisupir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

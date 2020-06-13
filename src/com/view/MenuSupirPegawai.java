@@ -6,6 +6,16 @@
 package com.view;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import com.controller.controllerSupir;
+import com.toedter.calendar.JDateChooser;
+import java.sql.Connection; 
+import java.sql.DriverManager; 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement; 
+import javax.swing.JTable;
+import com.controller.ControllerMenuSupirPegawai;
 
 
 
@@ -14,12 +24,14 @@ import javax.swing.JOptionPane;
  * @author FAISAL
  */
 public class MenuSupirPegawai extends javax.swing.JFrame {
-
+    ControllerMenuSupirPegawai cbt;
     /**
      * Creates new form MenuSupirPegawai
      */
     public MenuSupirPegawai() {
         initComponents();
+        cbt = new ControllerMenuSupirPegawai(this);
+        cbt.isiTable();
     }
 
     /**
@@ -44,7 +56,7 @@ public class MenuSupirPegawai extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TabelData = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -168,7 +180,7 @@ public class MenuSupirPegawai extends javax.swing.JFrame {
 
         jButton1.setText("CARI");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TabelData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -179,7 +191,7 @@ public class MenuSupirPegawai extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TabelData);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -286,6 +298,7 @@ public class MenuSupirPegawai extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TabelData;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -298,7 +311,29 @@ public class MenuSupirPegawai extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+    public JTable getTabelData(){
+        return TabelData;
+    }
+//    public JTextField getTxtid(){
+//        return Txtid;
+//    }
+//    
+//    public JTextField getTxtnama(){
+//        return Txtnama;
+//    }
+//    public JTextField getTxtalamat(){
+//        return Txtalamat;
+//    }
+//    public  JTextField getTxttgl_lahir(){
+//        return Txttgl_lahir;
+//    }
+//    public  JTextField getTxtno_telp(){
+//        return Txtno_telp;
+//    }
+//
+//    public JTextField getTxtjenis_kelamin(){
+//        return Txtjenis_kelamin;
+//    }
 }

@@ -105,13 +105,14 @@ public void insert(tujuan b){
                
                statement = connection.prepareStatement(update,Statement.RETURN_GENERATED_KEYS);
            
-               statement.setString(2, b.getTujuan());
+               statement.setString(1, b.getTujuan());
                
-               statement.setInt(3, b.getHarga());
+               statement.setInt(2, b.getHarga());
                
-               statement.setString(4, b.getJam());
+               statement.setString(3, b.getJam());
                
-               statement.setInt(1, b.getId());
+               statement.setInt(4, b.getId());
+               statement.executeUpdate();
                
                
            } catch (SQLException ex){

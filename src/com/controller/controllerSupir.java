@@ -15,10 +15,10 @@ public class controllerSupir{
     implementSupir implSupir; 
     List<Supir> lb;
     public controllerSupir(FormSupir frame) {
-    this.frame = frame;
-    implSupir = new SupirDAO();
-    lb = implSupir.getALL();
-}
+        this.frame = frame;
+        implSupir = new SupirDAO();
+        lb = implSupir.getALL();
+    }
     public void reset(){
         
         frame.getTxtnama().setText(""); 
@@ -32,7 +32,7 @@ public class controllerSupir{
         lb = implSupir.getALL();
         tableModelSupir tmb = new tableModelSupir(lb);
         frame.getTabelData().setModel(tmb);
-        }
+    }
     
     public void isiField(int row) {
         frame.getTxtid().setText(lb.get(row).getid().toString());
@@ -64,6 +64,7 @@ public class controllerSupir{
         b.setnama(frame.getTxtnama().getText()); 
         b.setalamat(frame.getTxtalamat().getText()); 
         b.settgl_lahir(frame.getTxttgl_lahir().getText());
+        b.setno_telp(frame.getTxtno_telp().getText());
         b.setjenis_kelamin(frame.getTxtjenis_kelamin().getText()); 
         implSupir.update(b);  
     

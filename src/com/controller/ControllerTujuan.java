@@ -97,6 +97,7 @@ public class ControllerTujuan {
             b.setJam(String.valueOf(frame.getTxtJam().getSelectedItem()));
             b.setId(Integer.parseInt(frame.getTxtID().getText()));
             implTujuan.update(b);
+            JOptionPane.showMessageDialog(frame,"Data Berhasil diubah");
         }else{
             JOptionPane.showMessageDialog(frame,"pilih data yang akan diubah");
         }
